@@ -50,6 +50,7 @@ app.post('/convert', upload.single('file'), (req, res) => {
             ])
             .on('end', () => {
                 const fileSize = fs.statSync(outputFilePath).size;
+                console.log("fileSize: ", fileSize);
                 if (fileSize > MAX_FILE_SIZE) {
                     console.log(fileSize);
                     fs.unlinkSync(outputFilePath);
