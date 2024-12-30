@@ -19,6 +19,10 @@ const upload = multer({ dest: 'uploads/' });
 const MAX_FILE_SIZE = 980 * 1024;
 const AUDIO_BITRATE = 128;
 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+})
+
 app.post('/convert', upload.single('file'), (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded');
